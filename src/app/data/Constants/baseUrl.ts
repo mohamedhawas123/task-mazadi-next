@@ -3,6 +3,6 @@ export const HEADERS = {
   "Content-Language": "en",
   Accept: "application/json",
   "Private-Key": "Tg$LXgp7uK!D@aAj^aT3TmWY9a9u#qh5g&xgEETJ",
-  Platform: "web",
+  Platform: "Postman",
   Currency: "AED",
 };

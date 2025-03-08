@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import Select, { SingleValue } from "react-select";
 import axios from "axios";
-import { BASE_URL, HEADERS } from "../data/Constants/baseUrl";
 import { Option, Property, Category } from "@/app/data/models/FormOptions";
 
 export default function FormPage() {
@@ -24,8 +23,7 @@ export default function FormPage() {
   const fetchCategories = async () => {
     try {
       const { data } = await axios.get<{ data: { categories: Category[] } }>(
-        `${BASE_URL}/all-categories/web`,
-        { headers: HEADERS }
+        `/api/proxy?path=all-categories/web`
       );
 
       setCategories(
@@ -45,11 +43,8 @@ export default function FormPage() {
 
     try {
       const { data } = await axios.get<{ data: Property[] }>(
-        `${BASE_URL}/properties/${selected.value}`,
-        { headers: HEADERS }
+        `/api/proxy?path=properties/${selected.value}`
       );
-
-      console.log("Subcategories Response:", data.data);
 
       const extractedSubCategories = data.data.map((prop) => ({
         value: prop.id,
@@ -69,8 +64,7 @@ export default function FormPage() {
 
     try {
       const { data } = await axios.get<{ data: Property[] }>(
-        `${BASE_URL}/option-properties/${selected.value}`,
-        { headers: HEADERS }
+        `/api/proxy?path=option-properties/${selected.value}`
       );
 
       setProperties(data.data);
