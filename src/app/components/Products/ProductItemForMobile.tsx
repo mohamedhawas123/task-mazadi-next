@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
 
 interface ProductItemForMobileProps {
@@ -22,7 +21,6 @@ const ProductItemForMobile: React.FC<ProductItemForMobileProps> = ({
   timeLeft,
   initialLiked,
 }) => {
-  const [liked, setLiked] = useState(initialLiked);
 
   return (
     <div className="flex flex-row gap-3 h-[88px]   ">
