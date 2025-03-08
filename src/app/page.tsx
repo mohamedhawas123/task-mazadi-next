@@ -39,11 +39,13 @@ export default function Home() {
       
         <div className="flex space-x-4 py-1  justify-center mt-3 ">
           {["Products", "Articles", "Reviews"].map((category, index) => (
-            <CategoryButton
+            <div className="mt-3" >
+              <CategoryButton
               key={index}
               text={category}
               defaultSelected={category === "Products"}
             />
+              </div>
           ))}
         </div>
         {/* Product Title */}
